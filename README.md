@@ -3,6 +3,7 @@
 An interactive web dashboard visualising **10 years of Indian stock market data** — covering Nifty 50, SENSEX, top NSE stocks, and monthly seasonality trends (2015–2025).
 
 ## 🌐 Live Demo
+https://pritambardhan99-hue.github.io/Indian-Stock-Market-Analysis-Dashboard/
 
 ## 📊 Features
 - Nifty 50 & SENSEX 10-year trend

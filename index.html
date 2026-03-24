@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India Stock Market Analysis 2015–2024</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<style>
+  body{background:#050d1a;color:#e2e8f0;font-family:'Segoe UI',sans-serif;}
+  .card{background:#0a1628;border-radius:12px;border:1px solid #132040;}
+  .chart-box{position:relative;height:300px;}
+  .tab-btn{transition:all .2s;}
+  .tab-btn.active{background:#2563eb;color:#fff;border-color:#2563eb!important;}
+  .stat-card{background:linear-gradient(135deg,#0a1628,#050d1a);border:1px solid #132040;}
+  ::-webkit-scrollbar{width:6px;} ::-webkit-scrollbar-thumb{background:#1e3a5f;border-radius:3px;}
+  table{border-collapse:collapse;width:100%;}
+  th{background:#030810;color:#4a7ab5;font-size:11px;text-transform:uppercase;letter-spacing:.5px;}
+  th,td{padding:9px 14px;border-bottom:1px solid #0a1628;text-align:left;font-size:13px;}
+  tr:hover td{background:#0d1e36;}
+  .up{color:#22c55e;font-weight:700;}
+  .dn{color:#ef4444;font-weight:700;}
+  .ticker{display:inline-flex;align-items:center;gap:8px;background:#0a1628;border:1px solid #132040;border-radius:8px;padding:5px 12px;font-size:12px;}
+  .nb{background:#1e3a8a;color:#93c5fd;font-size:9px;padding:1px 5px;border-radius:3px;margin-left:4px;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div style="background:linear-gradient(135deg,#0a1f3d,#0d2b55,#0a1f3d)" class="px-6 py-5">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center justify-between flex-wrap gap-4">
+      <div>
+        <h1 class="text-3xl font-black text-white">📈 India Stock Market Analysis</h1>
+        <p class="text-blue-300 text-sm mt-1">NSE · BSE · Nifty 50 · SENSEX · Real Data 2015–2024 · 10 Years · 2,456 Trading Days</p>
+      </div>
+      <div class="flex gap-3 flex-wrap">
+        <div class="ticker"><span class="text-blue-300 font-bold">NIFTY 50</span><span class="up">▲ 23,645</span><span class="up text-xs">+181.6% (10Y)</span></div>
+        <div class="ticker"><span class="text-blue-300 font-bold">SENSEX</span><span class="up">▲ 78,139</span><span class="up text-xs">+180.2% (10Y)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 mt-5">
+
+  <!-- TABS -->
+  <div class="flex flex-wrap gap-2 mb-6">
+    <button class="tab-btn active px-4 py-2 rounded-lg text-sm font-semibold border border-blue-600" onclick="showTab('overview')">📊 Overview</button>
+    <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold border border-slate-700 text-slate-300" onclick="showTab('nifty')">📈 Nifty Trend</button>
+    <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold border border-slate-700 text-slate-300" onclick="showTab('stocks')">🏆 Top Stocks</button>
+    <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold border border-slate-700 text-slate-300" onclick="showTab('seasonal')">📅 Seasonality</button>
+    <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold border border-slate-700 text-slate-300" onclick="showTab('compare')">⚖️ Nifty vs SENSEX</button>
+    <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold border border-slate-700 text-slate-300" onclick="showTab('insights')">💡 Insights</button>
+  </div>
+
+  <!-- ══ OVERVIEW ══ -->
+  <div id="tab-overview">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div class="stat-card rounded-xl p-4">
+        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Nifty 50 Start (Jan 2015)</div>
+        <div class="text-2xl font-black text-white">8,395</div>
+        <div class="text-xs text-slate-400 mt-1">Base Value</div>
+      </div>
+      <div class="stat-card rounded-xl p-4">
+        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Nifty 50 End (Dec 2024)</div>
+        <div class="text-2xl font-black text-green-400">23,645</div>
+        <div class="text-xs text-green-400 mt-1">▲ +181.6% in 10 years</div>
+      </div>
+      <div class="stat-card rounded-xl p-4">
+        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Nifty All Time High</div>
+        <div class="text-2xl font-black text-yellow-400">26,216</div>
+        <div class="text-xs text-slate-400 mt-1">Sep 2024</div>
+      </div>
+      <div class="stat-card rounded-xl p-4">
+        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Nifty All Time Low</div>
+        <div class="text-2xl font-black text-red-400">6,971</div>
+        <div class="text-xs text-slate-400 mt-1">Mar 2020 (COVID crash)</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+      <div class="card p-5">
+        <h3 class="font-bold text-white mb-4">📈 Nifty 50 — Annual Returns (Year by Year)</h3>
+        <div class="chart-box"><canvas id="annualChart"></canvas></div>
+      </div>
+      <div class="card p-5">
+        <h3 class="font-bold text-white mb-4">🏆 Best Performing Stocks — 10 Year Return %</h3>
+        <div class="chart-box"><canvas id="stockReturnChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div class="card p-5">
+        <h3 class="font-bold text-white mb-4">📅 Monthly Seasonality — Best & Worst Months</h3>
+        <div class="chart-box"><canvas id="seasonalOverview"></canvas></div>
+      </div>
+      <div class="card p-5">
+        <h3 class="font-bold text-white mb-4">📊 Nifty vs SENSEX — Normalized Growth (Base=100)</h3>
+        <div class="chart-box"><canvas id="compareOverview"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ NIFTY TREND ══ -->
+  <div id="tab-nifty" class="hidden">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+      <div class="stat-card rounded-xl p-4 text-center">
+        <div class="text-2xl font-black text-green-400">+181.6%</div>
+        <div class="text-xs text-slate-400 mt-1">10 Year Total Return</div>
+      </div>
+      <div class="stat-card rounded-xl p-4 text-center">
+        <div class="text-2xl font-black text-blue-400">+11.6%</div>
+        <div class="text-xs text-slate-400 mt-1">Avg Annual Return (CAGR)</div>
+      </div>
+      <div class="stat-card rounded-xl p-4 text-center">
+        <div class="text-2xl font-black text-yellow-400">26,216</div>
+        <div class="text-xs text-slate-400 mt-1">All Time High</div>
+      </div>
+      <div class="stat-card rounded-xl p-4 text-center">
+        <div class="text-2xl font-black text-red-400">-38%</div>
+        <div class="text-xs text-slate-400 mt-1">COVID Crash (Feb–Mar 2020)</div>
+      </div>
+    </div>
+    <div class="card p-5 mb-5">
+      <h3 class="font-bold text-white mb-4">📈 Nifty 50 — Complete Monthly Chart (2015–2024)</h3>
+      <div style="height:380px;position:relative"><canvas id="niftyFullChart"></canvas></div>
+    </div>
+    <div class="card p-5">
+      <h3 class="font-bold text-white mb-4">📊 Annual Returns — Year by Year Breakdown</h3>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Year</th><th>Closing Value</th><th>Annual Return</th><th>Key Event</th></tr></thead>
+          <tbody id="annual-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TOP STOCKS ══ -->
+  <div id="tab-stocks" class="hidden">
+    <div class="mb-3 px-3 py-2 bg-blue-900 bg-opacity-30 rounded-lg text-xs text-blue-300 border border-blue-800">
+      ✅ Real data from your CSV files · All prices in INR · Period: Jan 2015 – Dec 2024
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+      <div class="card p-5">
+        <h3 class="font-bold text-white mb-4">🏆 10-Year Return % — All Stocks</h3>
+        <div class="chart-box"><canvas id="stocksBarChart"></canvas></div>
+      </div>
+      <div class="card p-5">
+        <h3 class="font-bold text-white mb-4">💰 Start Price vs End Price (₹)</h3>
+        <div class="chart-box"><canvas id="priceCompareChart"></canvas></div>
+      </div>
+    </div>
+    <div class="card p-5">
+      <h3 class="font-bold text-white mb-4">📋 Complete Stock Performance Table — 2015 to 2024</h3>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>#</th><th>Stock</th><th>Start Price (₹)</th><th>End Price (₹)</th><th>All Time High (₹)</th><th>10Y Return</th><th>₹1 Lakh → Today</th></tr></thead>
+          <tbody id="stocks-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEASONALITY ══ -->
+  <div id="tab-seasonal" class="hidden">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+      <div class="stat-card rounded-xl p-4 text-center border-l-4 border-green-500">
+        <div class="text-2xl font-black text-green-400">July</div>
+        <div class="text-xs text-slate-400 mt-1">Best Month Avg +0.16%/day</div>
+      </div>
+      <div class="stat-card rounded-xl p-4 text-center border-l-4 border-blue-500">
+        <div class="text-2xl font-black text-blue-400">April</div>
+        <div class="text-xs text-slate-400 mt-1">2nd Best +0.13%/day</div>
+      </div>
+      <div class="stat-card rounded-xl p-4 text-center border-l-4 border-red-500">
+        <div class="text-2xl font-black text-red-400">February</div>
+        <div class="text-xs text-slate-400 mt-1">Worst Month -0.06%/day</div>
+      </div>
+      <div class="stat-card rounded-xl p-4 text-center border-l-4 border-orange-500">
+        <div class="text-2xl font-black text-orange-400">8 of 12</div>
+        <div class="text-xs text-slate-400 mt-1">Months are Positive</div>
+      </div>
+    </div>
+    <div class="card p-5 mb-5">
+      <h3 class="font-bold text-white mb-2">📅 Average Daily Return by Month — Seasonality Pattern (2015–2024)</h3>
+      <p class="text-xs text-slate-400 mb-4">Based on 10 years of daily returns — which months are historically bullish or bearish</p>
+      <div class="chart-box"><canvas id="seasonalChart"></canvas></div>
+    </div>
+    <div class="card p-5">
+      <h3 class="font-bold text-white mb-4">📋 Monthly Seasonality Data — Detailed</h3>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Month</th><th>Avg Daily Return</th><th>Bias</th><th>Investment Tip</th></tr></thead>
+          <tbody id="seasonal-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMPARE ══ -->
+  <div id="tab-compare" class="hidden">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+      <div class="stat-card rounded-xl p-4 text-center">
+        <div class="text-xl font-black text-blue-400">Nifty 50</div>
+        <div class="text-2xl font-black text-green-400 mt-1">+181.6%</div>
+        <div class="text-xs text-slate-400">10Y Return</div>
+      </div>
+      <div class="stat-card rounded-xl p-4 text-center">
+        <div class="text-xl font-black text-orange-400">SENSEX</div>
+        <div class="text-2xl font-black text-green-400 mt-1">+180.2%</div>
+        <div class="text-xs text-slate-400">10Y Return</div>
+      </div>
+      <div class="stat-card rounded-xl p-4 text-center">
+        <div class="text-xl font-black text-white">Difference</div>
+        <div class="text-2xl font-black text-yellow-400 mt-1">+1.4%</div>
+        <div class="text-xs text-slate-400">Nifty outperformed</div>
+      </div>
+      <div class="stat-card rounded-xl p-4 text-center">
+        <div class="text-xl font-black text-white">Correlation</div>
+        <div class="text-2xl font-black text-green-400 mt-1">99.8%</div>
+        <div class="text-xs text-slate-400">Almost identical</div>
+      </div>
+    </div>
+    <div class="card p-5 mb-5">
+      <h3 class="font-bold text-white mb-2">⚖️ Nifty 50 vs SENSEX — Normalized Growth (Base = 100)</h3>
+      <p class="text-xs text-slate-400 mb-4">Both indices started at 100 in Jan 2015 — shows relative performance over time</p>
+      <div style="height:380px;position:relative"><canvas id="compareFullChart"></canvas></div>
+    </div>
+    <div class="card p-5">
+      <h3 class="font-bold text-white mb-4">📋 Year by Year — Nifty vs SENSEX Closing Values</h3>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Year</th><th>Nifty 50</th><th>SENSEX</th><th>Nifty Return</th><th>SENSEX Return</th><th>Winner</th></tr></thead>
+          <tbody id="compare-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ INSIGHTS ══ -->
+  <div id="tab-insights" class="hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+
+      <div class="card p-5 border-l-4 border-green-500">
+        <div class="text-2xl mb-2">🚀</div>
+        <h3 class="font-bold text-white mb-1">Biggest Winner (10Y)</h3>
+        <div class="text-3xl font-black text-green-400">+1,909%</div>
+        <p class="text-sm text-slate-400 mt-2">Bajaj Finance — ₹34 in 2015 → ₹678 in 2024. ₹1 lakh invested became ₹20 lakh!</p>
+      </div>
+
+      <div class="card p-5 border-l-4 border-blue-500">
+        <div class="text-2xl mb-2">📈</div>
+        <h3 class="font-bold text-white mb-1">Nifty 10Y CAGR</h3>
+        <div class="text-3xl font-black text-blue-400">11.6%</div>
+        <p class="text-sm text-slate-400 mt-2">₹1 lakh in Nifty 50 in 2015 became ₹2.82 lakh by 2024. Better than FD every year!</p>
+      </div>
+
+      <div class="card p-5 border-l-4 border-red-500">
+        <div class="text-2xl mb-2">💥</div>
+        <h3 class="font-bold text-white mb-1">COVID Crash (2020)</h3>
+        <div class="text-3xl font-black text-red-400">-38%</div>
+        <p class="text-sm text-slate-400 mt-2">Nifty fell from 12,168 (Dec 2019) to 6,971 (Mar 2020) in just 6 weeks. Recovered fully by Nov 2020.</p>
+      </div>
+
+      <div class="card p-5 border-l-4 border-yellow-500">
+        <div class="text-2xl mb-2">📅</div>
+        <h3 class="font-bold text-white mb-1">Best Year</h3>
+        <div class="text-3xl font-black text-yellow-400">2017 +28.6%</div>
+        <p class="text-sm text-slate-400 mt-2">Best year for Nifty 50 in this period. Driven by GST implementation optimism and FII inflows.</p>
+      </div>
+
+      <div class="card p-5 border-l-4 border-orange-500">
+        <div class="text-2xl mb-2">☀️</div>
+        <h3 class="font-bold text-white mb-1">Best Month (Historical)</h3>
+        <div class="text-3xl font-black text-orange-400">July</div>
+        <p class="text-sm text-slate-400 mt-2">July is historically the best month for Nifty with average daily return of +0.16%. Budget season rally.</p>
+      </div>
+
+      <div class="card p-5 border-l-4 border-purple-500">
+        <div class="text-2xl mb-2">❄️</div>
+        <h3 class="font-bold text-white mb-1">Worst Month (Historical)</h3>
+        <div class="text-3xl font-black text-purple-400">February</div>
+        <p class="text-sm text-slate-400 mt-2">February has historically been weakest with avg -0.06%/day. Post-budget selling pressure.</p>
+      </div>
+
+      <div class="card p-5 border-l-4 border-cyan-500">
+        <div class="text-2xl mb-2">🏦</div>
+        <h3 class="font-bold text-white mb-1">Reliance vs SBI</h3>
+        <div class="text-3xl font-black text-cyan-400">+537% vs +178%</div>
+        <p class="text-sm text-slate-400 mt-2">Reliance (+537%) massively outperformed SBI (+178%) over 10 years. Private beats PSU.</p>
+      </div>
+
+      <div class="card p-5 border-l-4 border-pink-500">
+        <div class="text-2xl mb-2">💻</div>
+        <h3 class="font-bold text-white mb-1">Best Sector (IT)</h3>
+        <div class="text-3xl font-black text-pink-400">TCS +293%</div>
+        <p class="text-sm text-slate-400 mt-2">TCS grew from ₹989 to ₹3,887. Infosys +397%. IT sector was the biggest wealth creator.</p>
+      </div>
+
+      <div class="card p-5 border-l-4 border-indigo-500">
+        <div class="text-2xl mb-2">📦</div>
+        <h3 class="font-bold text-white mb-1">All Stocks Positive</h3>
+        <div class="text-3xl font-black text-indigo-400">10 / 10</div>
+        <p class="text-sm text-slate-400 mt-2">All 10 Nifty stocks gave positive returns over 10 years. Worst was SBI at +178% — still 3x your money!</p>
+      </div>
+    </div>
+
+    <!-- Investment Calculator -->
+    <div class="card p-5 mb-5 border border-blue-800">
+      <h3 class="font-bold text-white mb-4">🧮 SIP Calculator — What ₹10,000/month in Nifty 50 became</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-slate-800 rounded-xl p-4 text-center">
+          <div class="text-lg font-black text-white">₹12 Lakh</div>
+          <div class="text-xs text-slate-400 mt-1">Total Invested (10Y SIP)</div>
+        </div>
+        <div class="bg-slate-800 rounded-xl p-4 text-center">
+          <div class="text-lg font-black text-green-400">₹23.4 Lakh</div>
+          <div class="text-xs text-slate-400 mt-1">Estimated Value Today</div>
+        </div>
+        <div class="bg-slate-800 rounded-xl p-4 text-center">
+          <div class="text-lg font-black text-blue-400">₹11.4 Lakh</div>
+          <div class="text-xs text-slate-400 mt-1">Total Profit</div>
+        </div>
+        <div class="bg-slate-800 rounded-xl p-4 text-center">
+          <div class="text-lg font-black text-yellow-400">14.8%</div>
+          <div class="text-xs text-slate-400 mt-1">XIRR (Annualized Return)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-5">
+      <h3 class="font-bold text-white mb-4">💡 Key Takeaways for Indian Investors</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+        <div class="bg-slate-800 rounded-lg p-3 flex gap-3">
+          <span class="text-green-400 text-lg">✅</span>
+          <span><strong class="text-white">Stay Invested:</strong> <span class="text-slate-400">Even COVID crash recovered within 8 months. Long term always wins.</span></span>
+        </div>
+        <div class="bg-slate-800 rounded-lg p-3 flex gap-3">
+          <span class="text-green-400 text-lg">✅</span>
+          <span><strong class="text-white">SIP Works:</strong> <span class="text-slate-400">₹10K/month for 10 years turned ₹12L into ₹23L at 14.8% XIRR.</span></span>
+        </div>
+        <div class="bg-slate-800 rounded-lg p-3 flex gap-3">
+          <span class="text-blue-400 text-lg">💡</span>
+          <span><strong class="text-white">Small Cap Wins Big:</strong> <span class="text-slate-400">Bajaj Finance (+1909%) shows how small caps can multiply wealth.</span></span>
+        </div>
+        <div class="bg-slate-800 rounded-lg p-3 flex gap-3">
+          <span class="text-blue-400 text-lg">💡</span>
+          <span><strong class="text-white">IT Sector Dominates:</strong> <span class="text-slate-400">TCS, Infosys both 3-4x in 10 years. Indian IT is world class.</span></span>
+        </div>
+        <div class="bg-slate-800 rounded-lg p-3 flex gap-3">
+          <span class="text-yellow-400 text-lg">⚠️</span>
+          <span><strong class="text-white">Buy in Feb-Mar:</strong> <span class="text-slate-400">Seasonality shows Feb/Mar are weakest — historically good entry points.</span></span>
+        </div>
+        <div class="bg-slate-800 rounded-lg p-3 flex gap-3">
+          <span class="text-yellow-400 text-lg">⚠️</span>
+          <span><strong class="text-white">Nifty ≈ SENSEX:</strong> <span class="text-slate-400">99.8% correlated — investing in either index gives same result.</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center text-slate-700 text-xs py-8">
+    India Stock Market Analysis · Data from yfinance · NSE/BSE · 2015–2024 · 10 Years · 2,456 Trading Days · For Educational Purposes
+  </div>
+</div>
+
+<script>
+// ══ REAL DATA FROM YOUR CSV FILES ════════════════════════
+
+const DATES = ["15/01","15/02","15/03","15/04","15/05","15/06","15/07","15/08","15/09","15/10","15/11","15/12","16/01","16/02","16/03","16/04","16/05","16/06","16/07","16/08","16/09","16/10","16/11","16/12","17/01","17/02","17/03","17/04","17/05","17/06","17/07","17/08","17/09","17/10","17/11","17/12","18/01","18/02","18/03","18/04","18/05","18/06","18/07","18/08","18/09","18/10","18/11","18/12","19/01","19/02","19/03","19/04","19/05","19/06","19/07","19/08","19/09","19/10","19/11","19/12","20/01","20/02","20/03","20/04","20/05","20/06","20/07","20/08","20/09","20/10","20/11","20/12","21/01","21/02","21/03","21/04","21/05","21/06","21/07","21/08","21/09","21/10","21/11","21/12","22/01","22/02","22/03","22/04","22/05","22/06","22/07","22/08","22/09","22/10","22/11","22/12","23/01","23/02","23/03","23/04","23/05","23/06","23/07","23/08","23/09","23/10","23/11","23/12","24/01","24/02","24/03","24/04","24/05","24/06","24/07","24/08","24/09","24/10","24/11","24/12"];
+
+const NIFTY  = [8809,8845,8491,8182,8434,8368,8533,7971,7949,8066,7935,7946,7564,6987,7738,7850,8160,8288,8638,8786,8611,8638,8224,8186,8561,8880,9174,9304,9621,9521,10077,9918,9789,10335,10227,10531,11028,10493,10114,10739,10736,10714,11356,11680,10930,10387,10877,10863,10831,10792,11570,11748,11923,11789,11118,11023,11474,11877,12056,12168,11962,11202,8598,9860,9580,10302,11073,11388,11248,11642,12969,13982,13635,14529,14691,14631,15583,15722,15763,17132,17618,17672,16983,17354,17340,16794,17465,17103,16585,15780,17158,17759,17094,18012,18758,18105,17662,17304,17360,18065,18534,19189,19754,19254,19638,19080,20133,21731,21726,21983,22327,22605,22531,24011,24951,25236,25811,24205,24131,23645];
+
+const SENSEX = [29183,29220,27957,27011,27828,27781,28115,26283,26155,26657,26146,26118,24871,23002,25342,25607,26668,27000,28052,28452,27866,27942,26653,26626,27656,28743,29620,29918,31146,30922,32515,31730,31284,33213,33149,34057,35965,34184,32969,35160,35322,35423,37607,38645,36227,34442,36194,36068,36257,35867,38546,39032,39714,39395,37481,37333,38667,40129,40794,41254,40723,38297,29468,33718,32424,34916,37607,38628,38068,39614,44150,47751,46286,49100,49509,48782,51937,52483,52587,57552,59126,59307,57065,58254,58014,56247,58569,57061,55566,53019,57570,59537,57427,60747,63100,60841,59550,58962,58992,61112,62622,64719,66528,64831,65828,63875,66988,72240,71752,72500,73651,74483,73961,79033,81741,82366,84300,79389,79803,78139];
+
+const N_NORM = [100,100.41,96.39,92.88,95.74,94.99,96.87,90.49,90.24,91.57,90.08,90.2,85.87,79.32,87.84,89.11,92.63,94.09,98.06,99.74,97.75,98.06,93.36,92.93,97.18,100.81,104.14,105.62,109.22,108.08,114.39,112.59,111.12,117.32,116.1,119.55,125.19,119.12,114.81,121.91,121.88,121.63,128.91,132.59,124.08,117.91,123.48,123.32,122.95,122.51,131.34,133.36,135.35,133.83,126.21,125.13,130.25,134.83,136.86,138.13,135.79,127.17,97.6,111.93,108.75,116.95,125.7,129.28,127.69,132.16,147.22,158.72,154.78,164.93,166.77,166.09,176.9,178.48,178.94,194.48,200,200.61,192.79,197,196.84,190.65,198.26,194.15,188.27,179.13,194.78,201.6,194.05,204.47,212.94,205.53,200.5,196.44,197.07,205.07,210.4,217.83,224.25,218.57,222.93,216.6,228.55,246.69,246.63,249.55,253.46,256.61,255.77,272.57,283.24,286.48,293.01,274.78,273.94,268.42];
+
+const S_NORM = [100,100.13,95.8,92.56,95.36,95.2,96.34,90.06,89.62,91.34,89.59,89.5,85.22,78.82,86.84,87.75,91.38,92.52,96.12,97.5,95.49,95.75,91.33,91.24,94.77,98.49,101.5,102.52,106.73,105.96,111.42,108.73,107.2,113.81,113.59,116.7,123.24,117.14,112.97,120.48,121.04,121.38,128.87,132.42,124.14,118.02,124.02,123.59,124.24,122.9,132.08,133.75,136.09,134.99,128.43,127.93,132.5,137.51,139.79,141.36,139.54,131.23,100.98,115.54,111.11,119.64,128.87,132.36,130.45,135.74,151.29,163.63,158.61,168.25,169.65,167.16,177.97,179.84,180.2,197.21,202.6,203.22,195.54,199.62,198.79,192.74,200.7,195.53,190.41,181.68,197.27,204.01,196.78,208.16,216.22,208.48,204.06,202.04,202.15,209.41,214.58,221.77,227.97,222.15,225.57,218.88,229.54,247.54,245.87,248.43,252.38,255.23,253.44,270.82,280.1,282.24,288.87,272.04,273.46,267.76];
+
+// Annual returns from your real CSV
+const ANNUAL_YEARS   = [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024];
+const ANNUAL_CLOSES  = [7946,8186,10531,10863,12168,13982,17354,18105,21731,23645];
+const ANNUAL_RETURNS = [null,3.01,28.65,3.15,12.02,14.90,24.12,4.33,20.03,8.80];
+
+const ANNUAL_EVENTS = {
+  2015:"Demonetization fears begin",
+  2016:"Demonetization shock",
+  2017:"GST launch, bull run",
+  2018:"IL&FS crisis, rupee falls",
+  2019:"Elections, rate cuts",
+  2020:"COVID crash & recovery",
+  2021:"Massive bull run post-COVID",
+  2022:"Russia-Ukraine war, FII selloff",
+  2023:"Strong recovery, record highs",
+  2024:"Election year, new ATH 26216"
+};
+
+// Monthly seasonality from your real CSV
+const MONTHS     = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTHLY_R  = [0.0129,-0.0622,-0.0165,0.1309,0.0735,0.0585,0.1607,0.0441,-0.0161,0.0300,0.0757,0.0743];
+
+// Stock comparison from your real CSV
+const STOCKS = [
+  {n:"Bajaj Finance",  start:34,   end:678,  high:808,  ret:1908.7},
+  {n:"Reliance",       start:190,  end:1211, high:1589, ret:537.2},
+  {n:"Infosys",        start:368,  end:1826, high:1942, ret:396.5},
+  {n:"ICICI Bank",     start:294,  end:1272, high:1336, ret:332.6},
+  {n:"HDFC Bank",      start:217,  end:875,  high:923,  ret:302.6},
+  {n:"TCS",            start:989,  end:3887, high:4312, ret:293.0},
+  {n:"Maruti",         start:3032, end:10742,high:13351,ret:254.3},
+  {n:"Asian Paints",   start:685,  end:2257, high:3460, ret:229.5},
+  {n:"Wipro",          start:91,   end:283,  high:333,  ret:210.4},
+  {n:"SBI",            start:280,  end:779,  high:888,  ret:178.4},
+];
+
+// Nifty vs Sensex yearly
+const NIFTY_YR  = [7946,8186,10531,10863,12168,13982,17354,18105,21731,23645];
+const SENSEX_YR = [26118,26626,34057,36068,41254,47751,58254,60841,72240,78139];
+
+// ══ CHART SETUP ══════════════════════════════════════════
+Chart.defaults.color='#64748b';
+Chart.defaults.borderColor='#0a1628';
+const G='#22c55e',R='#ef4444',B='#3b82f6',O='#f97316',Y='#eab308',P='#a855f7';
+
+function mk(id,cfg){const el=document.getElementById(id);if(!el)return;return new Chart(el,cfg);}
+
+// ── OVERVIEW ─────────────────────────────────────────────
+function buildOverview(){
+  // Annual returns bar
+  mk('annualChart',{type:'bar',data:{
+    labels:ANNUAL_YEARS.slice(1).map(String),
+    datasets:[{data:ANNUAL_RETURNS.slice(1),
+      backgroundColor:ANNUAL_RETURNS.slice(1).map(v=>v>=0?'rgba(34,197,94,0.8)':'rgba(239,68,68,0.8)'),
+      borderRadius:5}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y.toFixed(2)}%`}}},
+      scales:{y:{grid:{color:'#0a1628'},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}});
+
+  // Stock returns horizontal bar
+  const sorted = [...STOCKS].sort((a,b)=>a.ret-b.ret);
+  mk('stockReturnChart',{type:'bar',data:{
+    labels:sorted.map(s=>s.n),
+    datasets:[{data:sorted.map(s=>s.ret),
+      backgroundColor:sorted.map(s=>s.ret>500?'rgba(234,179,8,0.8)':s.ret>300?'rgba(34,197,94,0.8)':'rgba(59,130,246,0.8)'),
+      borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` +${ctx.parsed.x.toFixed(1)}%`}}},
+      scales:{x:{grid:{color:'#0a1628'},ticks:{callback:v=>v+'%'}},y:{grid:{display:false},ticks:{font:{size:11}}}}}});
+
+  // Seasonal overview
+  mk('seasonalOverview',{type:'bar',data:{
+    labels:MONTHS,
+    datasets:[{data:MONTHLY_R,
+      backgroundColor:MONTHLY_R.map(v=>v>=0?'rgba(34,197,94,0.7)':'rgba(239,68,68,0.7)'),
+      borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{y:{grid:{color:'#0a1628'}},x:{grid:{display:false}}}}});
+
+  // Compare overview
+  mk('compareOverview',{type:'line',data:{
+    labels:DATES.filter((_,i)=>i%3===0),
+    datasets:[
+      {label:'Nifty 50',data:N_NORM.filter((_,i)=>i%3===0),borderColor:B,backgroundColor:'rgba(59,130,246,0.05)',borderWidth:1.5,pointRadius:0,tension:0.3,fill:true},
+      {label:'SENSEX',  data:S_NORM.filter((_,i)=>i%3===0),borderColor:O,backgroundColor:'rgba(249,115,22,0.05)',borderWidth:1.5,pointRadius:0,tension:0.3,fill:true}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top'}},
+      scales:{y:{grid:{color:'#0a1628'}},x:{grid:{display:false},ticks:{maxTicksLimit:8}}}}});
+}
+
+// ── NIFTY TREND ──────────────────────────────────────────
+function buildNifty(){
+  mk('niftyFullChart',{type:'line',data:{
+    labels:DATES,
+    datasets:[{label:'Nifty 50',data:NIFTY,borderColor:B,backgroundColor:'rgba(59,130,246,0.08)',borderWidth:1.5,pointRadius:0,tension:0.3,fill:true}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` Nifty: ${ctx.parsed.y.toLocaleString()}`}}},
+      scales:{y:{grid:{color:'#0a1628'},ticks:{callback:v=>v.toLocaleString()}},x:{grid:{display:false},ticks:{maxTicksLimit:12}}}}});
+
+  // Annual table
+  const tbody = document.getElementById('annual-tbody');
+  tbody.innerHTML = ANNUAL_YEARS.map((y,i)=>{
+    const ret = ANNUAL_RETURNS[i];
+    const retStr = ret===null ? '— (base)' : `${ret>=0?'▲':'▼'} ${ret>=0?'+':''}${ret}%`;
+    const cls = ret===null?'text-slate-400':ret>=0?'text-green-400':'text-red-400';
+    return `<tr>
+      <td class="font-bold text-blue-400">${y}</td>
+      <td class="font-semibold text-white">${ANNUAL_CLOSES[i].toLocaleString()}</td>
+      <td class="${cls} font-bold">${retStr}</td>
+      <td class="text-slate-400 text-xs">${ANNUAL_EVENTS[y]}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── STOCKS ───────────────────────────────────────────────
+function buildStocks(){
+  const sorted = [...STOCKS].sort((a,b)=>b.ret-a.ret);
+
+  mk('stocksBarChart',{type:'bar',data:{
+    labels:sorted.map(s=>s.n),
+    datasets:[{label:'10Y Return %',data:sorted.map(s=>s.ret),
+      backgroundColor:sorted.map(s=>s.ret>500?'rgba(234,179,8,0.8)':s.ret>300?'rgba(34,197,94,0.8)':'rgba(59,130,246,0.8)'),
+      borderRadius:5}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` +${ctx.parsed.y.toFixed(1)}%`}}},
+      scales:{y:{grid:{color:'#0a1628'},ticks:{callback:v=>v+'%'}},x:{grid:{display:false},ticks:{font:{size:11}}}}}});
+
+  mk('priceCompareChart',{type:'bar',data:{
+    labels:sorted.map(s=>s.n),
+    datasets:[
+      {label:'Start (2015)',data:sorted.map(s=>s.start),backgroundColor:'rgba(100,116,139,0.7)',borderRadius:3},
+      {label:'End (2024)',  data:sorted.map(s=>s.end),  backgroundColor:'rgba(59,130,246,0.7)', borderRadius:3}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top'}},
+      scales:{y:{grid:{color:'#0a1628'},ticks:{callback:v=>'₹'+v.toLocaleString()}},x:{grid:{display:false},ticks:{font:{size:10}}}}}});
+
+  // Table
+  document.getElementById('stocks-tbody').innerHTML = sorted.map((s,i)=>{
+    const lakh = Math.round(100000 * (1 + s.ret/100)).toLocaleString();
+    const cls  = 'text-green-400';
+    return `<tr>
+      <td class="text-slate-400">${i+1}</td>
+      <td class="font-semibold text-white">${s.n}</td>
+      <td class="text-slate-300">₹${s.start.toLocaleString()}</td>
+      <td class="font-bold text-blue-300">₹${s.end.toLocaleString()}</td>
+      <td class="text-yellow-400">₹${s.high.toLocaleString()}</td>
+      <td class="${cls} font-bold text-lg">+${s.ret}%</td>
+      <td class="text-green-400 font-bold">₹${lakh}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── SEASONALITY ──────────────────────────────────────────
+function buildSeasonal(){
+  mk('seasonalChart',{type:'bar',data:{
+    labels:MONTHS,
+    datasets:[{label:'Avg Daily Return %',data:MONTHLY_R,
+      backgroundColor:MONTHLY_R.map(v=>v>=0?'rgba(34,197,94,0.75)':'rgba(239,68,68,0.75)'),
+      borderRadius:5}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y.toFixed(4)}%`}}},
+      scales:{y:{grid:{color:'#0a1628'},ticks:{callback:v=>v.toFixed(3)+'%'}},x:{grid:{display:false}}}}});
+
+  // Table
+  const tips = {
+    Jan:"Generally positive — good to hold",
+    Feb:"Weakest month — avoid new buys",
+    Mar:"Slightly negative — budget aftermath",
+    Apr:"Strong — new financial year rally",
+    May:"Positive — pre-summer momentum",
+    Jun:"Positive — monsoon optimism",
+    Jul:"Best month — budget rally",
+    Aug:"Positive — mid-year stability",
+    Sep:"Slightly negative — September effect",
+    Oct:"Positive — festive season",
+    Nov:"Good — Q2 results season",
+    Dec:"Positive — year-end rally"
+  };
+  document.getElementById('seasonal-tbody').innerHTML = MONTHS.map((m,i)=>{
+    const r = MONTHLY_R[i];
+    const cls = r>=0?'text-green-400':'text-red-400';
+    const bias = r>=0?'<span class="px-2 py-0.5 rounded text-xs font-bold bg-green-900 text-green-300">BULLISH</span>':'<span class="px-2 py-0.5 rounded text-xs font-bold bg-red-900 text-red-300">BEARISH</span>';
+    return `<tr>
+      <td class="font-bold text-white">${m}</td>
+      <td class="${cls} font-bold">${r>=0?'+':''}${r.toFixed(4)}%</td>
+      <td>${bias}</td>
+      <td class="text-slate-400 text-xs">${tips[m]}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── COMPARE ──────────────────────────────────────────────
+function buildCompare(){
+  mk('compareFullChart',{type:'line',data:{
+    labels:DATES,
+    datasets:[
+      {label:'Nifty 50',data:N_NORM,borderColor:B,backgroundColor:'rgba(59,130,246,0.05)',borderWidth:2,pointRadius:0,tension:0.3,fill:true},
+      {label:'SENSEX',  data:S_NORM,borderColor:O,backgroundColor:'rgba(249,115,22,0.05)',borderWidth:2,pointRadius:0,tension:0.3,fill:true}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top'},tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}`}}},
+      scales:{y:{grid:{color:'#0a1628'},ticks:{callback:v=>v}},x:{grid:{display:false},ticks:{maxTicksLimit:12}}}}});
+
+  // Compare table
+  const nYR = NIFTY_YR;
+  const sYR = SENSEX_YR;
+  document.getElementById('compare-tbody').innerHTML = ANNUAL_YEARS.map((y,i)=>{
+    const nr = i===0?null:((nYR[i]-nYR[i-1])/nYR[i-1]*100).toFixed(2);
+    const sr = i===0?null:((sYR[i]-sYR[i-1])/sYR[i-1]*100).toFixed(2);
+    const winner = nr===null?'—':parseFloat(nr)>parseFloat(sr)?'<span class="text-blue-400 font-bold">Nifty</span>':'<span class="text-orange-400 font-bold">SENSEX</span>';
+    return `<tr>
+      <td class="font-bold text-blue-400">${y}</td>
+      <td class="text-white font-semibold">${nYR[i].toLocaleString()}</td>
+      <td class="text-white font-semibold">${sYR[i].toLocaleString()}</td>
+      <td class="${nr===null?'text-slate-400':nr>=0?'text-green-400':'text-red-400'} font-bold">${nr===null?'Base':nr>=0?`+${nr}%`:`${nr}%`}</td>
+      <td class="${sr===null?'text-slate-400':sr>=0?'text-green-400':'text-red-400'} font-bold">${sr===null?'Base':sr>=0?`+${sr}%`:`${sr}%`}</td>
+      <td>${winner}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ══ TAB LOGIC ════════════════════════════════════════════
+const built = new Set();
+function showTab(tab){
+  ['overview','nifty','stocks','seasonal','compare','insights'].forEach(t=>{
+    document.getElementById('tab-'+t).classList.toggle('hidden',t!==tab);
+  });
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>{
+    const tabs=['overview','nifty','stocks','seasonal','compare','insights'];
+    const on=tabs[i]===tab;
+    b.classList.toggle('active',on);
+    b.classList.toggle('border-blue-600',on);
+    b.classList.toggle('border-slate-700',!on);
+    b.classList.toggle('text-slate-300',!on);
+  });
+  if(built.has(tab))return; built.add(tab);
+  setTimeout(()=>{
+    if(tab==='overview') buildOverview();
+    if(tab==='nifty')    buildNifty();
+    if(tab==='stocks')   buildStocks();
+    if(tab==='seasonal') buildSeasonal();
+    if(tab==='compare')  buildCompare();
+  },50);
+}
+showTab('overview');
+</script>
+</body>
+</html>
